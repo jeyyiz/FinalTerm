@@ -1,10 +1,3 @@
-"""
-Streamlit deployment for the credit score classifier (requirement 1c).
-Collects one raw customer record through a form, sends it to
-InferenceService (which wraps the same CreditScorePreprocessor + best
-model trained by pipeline.py), and shows the predicted Credit_Score class.
-"""
-
 import streamlit as st
 
 from inference import InferenceService
