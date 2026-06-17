@@ -1,13 +1,3 @@
-"""
-InferenceService: loads the artifacts pipeline.py exported (fitted
-preprocessor + best model) and turns one raw customer record into a
-Credit_Score prediction.
-
-This is the single place both app.py (Streamlit) and any future API layer
-call into -- same separation MidTerm kept between its evaluation_sp.py
-logic and its UI scripts.
-"""
-
 import os
 
 import joblib
