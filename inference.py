@@ -1,13 +1,3 @@
-"""
-InferenceService: loads the artifacts pipeline.py exported (fitted
-preprocessor + best model) and turns one raw customer record into a
-Credit_Score prediction.
-
-This is the single place both app.py (Streamlit) and any future API layer
-call into -- same separation MidTerm kept between its evaluation_sp.py
-logic and its UI scripts.
-"""
-
 import os
 
 import joblib
@@ -15,14 +5,12 @@ import pandas as pd
 
 from preprocessing import TARGET_MAP
 
-ARTIFACTS_DIR = "artifacts"
 LABEL_DECODE = {v: k for k, v in TARGET_MAP.items()}
-
 
 class InferenceService:
     def __init__(self, artifacts_dir: str = ARTIFACTS_DIR):
-        preprocessor_path = os.path.join(artifacts_dir, "preprocessor.pkl")
-        model_path = os.path.join(artifacts_dir, "best_model.pkl")
+        preprocessor_path = os.path.join("preprocessor.pkl")
+        model_path = os.path.join("best_model.pkl")
 
         if not os.path.exists(preprocessor_path) or not os.path.exists(model_path):
             raise FileNotFoundError(
